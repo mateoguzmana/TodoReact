@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Todo from "./Todo";
 
-const TodoList = ({ todos, toggleTodo, editingTodo, editTodo }) => {
+const TodoList = ({ todos, toggleTodo, editingTodo, editTodo, deleteTodo }) => {
   const _onClick = todo => {
     toggleTodo(todo.id);
   };
@@ -16,6 +16,10 @@ const TodoList = ({ todos, toggleTodo, editingTodo, editTodo }) => {
     editingTodo(id);
   };
 
+  const _onDeleteTodo = todo => {
+    deleteTodo(todo.id);
+  };
+
   return (
     <ul className="list-group">
       {todos.map(todo => (
@@ -25,6 +29,7 @@ const TodoList = ({ todos, toggleTodo, editingTodo, editTodo }) => {
           onClick={() => _onClick(todo)}
           onEditing={() => _onEditing(todo)}
           onEditTodo={(text) => _onEditTodo(todo.id, text)}
+          onDelete={() => _onDeleteTodo(todo)}
         />
       ))}
     </ul>
@@ -41,7 +46,8 @@ TodoList.propTypes = {
   ).isRequired,
   toggleTodo: PropTypes.func.isRequired,
   editingTodo: PropTypes.func.isRequired,
-  editTodo: PropTypes.func.isRequired
+  editTodo: PropTypes.func.isRequired,
+  deleteTodo: PropTypes.func.isRequired
 };
 
 export default TodoList;

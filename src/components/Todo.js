@@ -4,11 +4,13 @@ import uncheck from "../assets/uncheck.png";
 import check from "../assets/check.png";
 import edit from "../assets/edit.png";
 import save from "../assets/save.png";
+import deleteIcon from "../assets/deleteIcon.png";
 
 const Todo = ({
   onClick,
   onEditing,
   onEditTodo,
+  onDelete,
   isEditing,
   completed,
   text
@@ -46,6 +48,9 @@ const Todo = ({
             alt=""
           />
         ) : null}
+        {!isEditing ? (
+          <img onClick={onDelete} className="todo-icon" src={deleteIcon} alt="" />
+        ) : null}
       </span>
     </li>
   );
@@ -56,6 +61,7 @@ Todo.propTypes = {
   completed: PropTypes.bool.isRequired,
   onEditing: PropTypes.func.isRequired,
   onEditTodo: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired,
   isEditing: PropTypes.bool.isRequired,
   text: PropTypes.string.isRequired
 };
