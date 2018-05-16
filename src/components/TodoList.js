@@ -2,14 +2,31 @@ import React from "react";
 import PropTypes from "prop-types";
 import Todo from "./Todo";
 
-const TodoList = ({ todos, toggleTodo }) => {
-  const _onClick = (todo) => {
+const TodoList = ({ todos, toggleTodo, editingTodo, editTodo }) => {
+  const _onClick = todo => {
     toggleTodo(todo.id);
+  };
+
+  const _onEditing = todo => {
+    editingTodo(todo.id);
+  };
+
+  const _onEditTodo = (id, text) => {
+    editTodo(id, text);
+    editingTodo(id);
   };
 
   return (
     <ul className="list-group">
-      {todos.map(todo => <Todo key={todo.id} {...todo} onClick={() => _onClick(todo)} />)}
+      {todos.map(todo => (
+        <Todo
+          key={todo.id}
+          {...todo}
+          onClick={() => _onClick(todo)}
+          onEditing={() => _onEditing(todo)}
+          onEditTodo={(text) => _onEditTodo(todo.id, text)}
+        />
+      ))}
     </ul>
   );
 };

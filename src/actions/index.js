@@ -16,6 +16,17 @@ export const toggleTodo = id => ({
   id
 });
 
+export const editingTodo = id => ({
+  type: "EDITING_TODO",
+  id
+});
+
+export const editTodo = (id, text) => ({
+  type: "EDIT_TODO",
+  id,
+  text
+});
+
 export const VisibilityFilters = {
   SHOW_ALL: "SHOW_ALL",
   SHOW_COMPLETED: "SHOW_COMPLETED",

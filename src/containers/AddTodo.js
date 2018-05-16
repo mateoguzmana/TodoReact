@@ -7,7 +7,7 @@ const AddTodo = ({ dispatch }) => {
 
   const _onSubmit = e => {
     e.preventDefault();
-    if (addTodoInput.value == "") {
+    if (addTodoInput.value === "") {
       return;
     }
     dispatch(addTodo(addTodoInput.value));
