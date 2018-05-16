@@ -54,6 +54,9 @@ const Todo = ({
 Todo.propTypes = {
   onClick: PropTypes.func.isRequired,
   completed: PropTypes.bool.isRequired,
+  onEditing: PropTypes.func.isRequired,
+  onEditTodo: PropTypes.func.isRequired,
+  isEditing: PropTypes.bool.isRequired,
   text: PropTypes.string.isRequired
 };
 
