@@ -8,7 +8,7 @@ const TodoList = ({ todos, toggleTodo }) => {
   };
 
   return (
-    <ul>
+    <ul className="list-group">
       {todos.map(todo => <Todo key={todo.id} {...todo} onClick={() => _onClick(todo)} />)}
     </ul>
   );

@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 
 const Todo = ({ onClick, completed, text }) => (
   <li
+    className="list-group-item d-flex"
     onClick={onClick}
     style={{ textDecoration: completed ? "line-through" : "none" }}
   >

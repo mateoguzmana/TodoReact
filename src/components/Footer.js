@@ -3,8 +3,7 @@ import FilterLink from "../containers/FilterLink";
 import { VisibilityFilters } from "../actions";
 
 const Footer = () => (
-  <div>
-    <span>Show: </span>
+  <div className="d-flex justify-content-center footer">
     <FilterLink filter={VisibilityFilters.SHOW_ALL}>All</FilterLink>
     <FilterLink filter={VisibilityFilters.SHOW_ACTIVE}>Active</FilterLink>
     <FilterLink filter={VisibilityFilters.SHOW_COMPLETED}>Completed</FilterLink>
